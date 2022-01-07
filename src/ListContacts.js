@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 // Stateless Functional Components
 function ListContacts (props) {
     return (
@@ -25,6 +27,11 @@ function ListContacts (props) {
                 ))}
             </ol>
     );
+}
+// Use PropTypes Package to verify ListContacts Props
+ListContacts.propTypes = {
+    contacts: PropTypes.array.isRequired,
+    onDeleteContact: PropTypes.func.isRequired
 }
 
 export default ListContacts
