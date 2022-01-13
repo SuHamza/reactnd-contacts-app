@@ -6,7 +6,8 @@ import CreateContact from './CreateContact';
 class App extends Component {
   // Set Contacts Array as State in App
   state = {
-    contacts: []
+    contacts: [],
+    screen: 'list'
   }
     // Use API to Fetch Remote Contacts
     componentDidMount() {
@@ -33,11 +34,16 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ListContacts 
-          contacts={this.state.contacts} 
-          onDeleteContact={this.removeContact}
-        />
-        <CreateContact />
+        {/* Using state to control content displayed to the user */}
+        {this.state.screen === 'list' && (
+          <ListContacts 
+            contacts={this.state.contacts} 
+            onDeleteContact={this.removeContact}
+          />
+        )}
+        {this.state.screen === 'create' && (
+          <CreateContact />
+        )}
       </div>
     )
   }
