@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListContacts from './ListContacts';
 import * as ContactsAPI from './utils/ContactsAPI'
+import CreateContact from './CreateContact';
 
 class App extends Component {
   // Set Contacts Array as State in App
@@ -36,6 +37,7 @@ class App extends Component {
           contacts={this.state.contacts} 
           onDeleteContact={this.removeContact}
         />
+        <CreateContact />
       </div>
     )
   }
