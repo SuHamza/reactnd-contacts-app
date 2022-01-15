@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Convert ListContacts to a class
 // Add Search field as a Contollred Component
@@ -46,10 +46,10 @@ class ListContacts extends Component {
                         onChange={(event) => this.updateQuery(event.target.value)}
                     />
                     {/* Replace Anchor tag with the Link Component */}
-                    {/* <Link
+                    <Link
                         to= '/create'
                         className="add-contact"
-                    >Add Contact</Link> */}
+                    >Add Contact</Link>
                 </div>
 
                 {
