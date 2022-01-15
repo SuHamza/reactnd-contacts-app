@@ -7,8 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 class App extends Component {
   // Set Contacts Array as State in App
   state = {
-    contacts: [],
-    screen: 'list'
+    contacts: []
   }
     // Use API to Fetch Remote Contacts
     componentDidMount() {
@@ -43,12 +42,7 @@ class App extends Component {
         <Route exact path='/*' element={<ListContacts 
           contacts={this.state.contacts} 
           onDeleteContact={this.removeContact}
-          onNavigate={() => {
-            this.setState(() => ({
-              screen: 'create'
-            }))
-          }}
-        />}>
+          />}>
       </Route>
         {/* Create Contact Route */}
         {/* In V6, you can't use the `component` prop anymore. 
