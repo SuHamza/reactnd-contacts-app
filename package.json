@@ -5,13 +5,13 @@
   "dependencies": {
     "escape-string-regexp": "^5.0.0",
     "prop-types": "^15.8.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-router-dom": "^6.2.1",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
