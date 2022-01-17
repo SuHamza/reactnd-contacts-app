@@ -1,16 +1,25 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ImageInput from './ImageInput';
 import serializeForm from 'form-serialize';
 
-class CreateContact extends Component {
-    // Handle Submission of the Contact Form
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const values = serializeForm(e.target, { hash: true });
-        console.log('Values::: ', values);
-    }
-    render() {
+// const navigate = useNavigate();
+
+// Handle Submission of the Contact Form
+// const handleSubmit = (props) => {
+//     e.preventDefault();
+//     const values = serializeForm(e.target, { hash: true });
+    
+//     if(props.onCreateContact) {
+//        props.onCreateContact(values);
+//        props.history.push('/');
+//     }
+// }
+// Convert CreateContact from Class to Function
+// To be able to use useNavigate() Hook!
+const CreateContact = (props) => {
+    
+    console.log(props);
         return (
             <div>
                 <Link 
@@ -18,7 +27,16 @@ class CreateContact extends Component {
                     to='/'>
                         Close
                 </Link>
-                <form onSubmit={this.handleSubmit} className="create-contact-form">
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    const values = serializeForm(e.target, { hash: true });
+                    
+                    if(props.onCreateContact) {
+                    props.onCreateContact(values);
+                    // useNavigate('/');
+                    }
+                }} 
+                className="create-contact-form">
                     <ImageInput
                         className='create-contact-avatar-input'
                         name='avatarURL'
@@ -32,7 +50,6 @@ class CreateContact extends Component {
                 </form>
             </div>
         )
-    }
 }
 
 export default CreateContact
